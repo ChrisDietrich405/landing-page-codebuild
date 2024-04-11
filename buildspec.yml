@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      # Install dependencies
+      - npm install
+  pre_build:
+	  commands:
+			- echo Running tests
+			- npm run test
+  build:
+    commands:
+      # Build the React app
+      - npm run build
+artifacts:
+  files:
+    # Specify the build output directory
+    - '**/*'
+  discard-paths: yes
